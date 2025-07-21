@@ -15,7 +15,7 @@ spec:
         app: eric-website
     spec:
       containers:
-      - image: registry.gitlab.centerionware.com/pyrofoxxx/website-2:6a495ca8
+      - image: registry.gitlab.centerionware.com/pyrofoxxx/website-2:51a229a5
         name: eric-website
         ports:
           - containerPort: 80
