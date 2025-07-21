@@ -5,7 +5,7 @@ Use: Download the repository with git using the https method.
 Use `docker compose up -d --build` to build a local image and launch the web server. Use (http://localhost:8080)[http://localhost:8080/] to view the website locally.
 
 After making any changes run:
-`docker compose down` then `docker compose up -d --build` to rebuild the image with your changes, so you can preview them before submitting.
+`docker compose down` then `docker compose up -d --build` to rebuild and relaunch the image with your changes, so you can preview them before submitting.
 
 After verifying all the changes are correct and working, use git to send your changes to the server.
 example:
