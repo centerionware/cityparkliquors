@@ -1,3 +1,3 @@
-FROM alpine
-COPY . /store
-ENTRYPOINT ["sh","/usr/store/entrypoint.sh"]
+FROM nginx
+COPY /public/ /usr/share/nginx/html
+COPY /Store\ Pictures/ /usr/share/nginx/html/Store\ Pictures/
