@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: matrix-mas
+  namespace: matrix-mas
+spec:
+  selector:
+    matchLabels:
+      app: eric-website
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: eric-website
+    spec:
+      securityContext:
+        fsGroup: 65532
+      containers:
+      - image: ghcr.io/element-hq/matrix-authentication-service:latest
+        name: eric-website
+        env:
+          - name: MAS_CONFIG
+            value: /data/config.yaml
+        volumeMounts:
+        - name: config-volume
+          mountPath: /data/config.yaml
+          subPath: config.yaml
+        ports:
+          - containerPort: 8080
+      - image: postgres:latest
+        name: config-shell
+        command: ["/bin/sh"]
+        args: ["-c", "tail -f /dev/null"]
+        volumeMounts:
+        - name: config-volume
+          mountPath: /data/config.yaml
+          subPath: config.yaml
+      volumes:
+      - name: config-volume
+        configMap:
+          name: mas-config

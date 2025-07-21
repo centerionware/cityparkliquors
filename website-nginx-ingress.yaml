@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: eric-cloudflare
+  name: matrix-mas-ingress
+  namespace: matrix-mas
+spec:
+  ingressClassName: eric-cloudflare
+  rules:
+    - host: cityparkliquors.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: website-service
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix

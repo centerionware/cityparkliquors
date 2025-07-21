@@ -1,0 +1,8 @@
+namePrefix: kustomize-
+
+resources:
+- website-nginx-deployment.yaml
+- website-nginx-svc.yaml
+- website-nginx-ingress.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
