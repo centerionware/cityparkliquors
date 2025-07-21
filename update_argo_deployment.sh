@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Variables
-REPO_URL="https://${GITLAB_USERNAME}:${CI_PUSH_TOKEN}@gitlab.centerionware.com/pyrofoxxx/website-2.git"
+REPO_URL="https://CI_ACCESS_TOKEN:${CI_ACCESS_TOKEN}@gitlab.centerionware.com/pyrofoxxx/website-2.git"
 BRANCH="argocd"
 FILE_PATH="website-nginx-deployment.yaml"
 IMAGE_PREFIX="registry.gitlab.centerionware.com/pyrofoxxx/website-2"
