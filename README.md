@@ -33,3 +33,7 @@ To connect to the domain (cloudflare-tunnel-ingress-controller)[https://github.c
 * A cloudflare API token with specific permissions (see the cloudflare-tunnel-ingress-controller preqrequisites section for details on this token)
 
 Once these three pieces of information are communicated I can go ahead and launch your website to the domain.
+
+### Critical Point to avoid pain
+
+in the DNS section for the domain there should not be an A or AAAA record for the domain. They will be created automatically by the tunnel-ingress-controller. If they already exist the tunnel-ingress-controller will fail until they're erased. Once it's created it will not need to be updated ever again even if the project is moved to a different server. 
