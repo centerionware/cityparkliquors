@@ -4,7 +4,7 @@ set -euo pipefail
 # Variables
 REPO_URL="https://gitlab.centerionware.com/pyrofoxxx/website-2.git"
 BRANCH="argocd"
-FILE_PATH="website-nginx-deployment.yaml"
+FILE_PATH="website-2/website-nginx-deployment.yaml"
 IMAGE_PREFIX="registry.gitlab.centerionware.com/pyrofoxxx/website-2"
 NEW_TAG="$CI_COMMIT_SHORT_SHA"
 
