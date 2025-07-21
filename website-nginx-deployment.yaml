@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: matrix-mas
-  namespace: matrix-mas
+  name: eric-website
+  namespace: eric-website
 spec:
   selector:
     matchLabels:
@@ -14,29 +14,8 @@ spec:
       labels:
         app: eric-website
     spec:
-      securityContext:
-        fsGroup: 65532
       containers:
-      - image: ghcr.io/element-hq/matrix-authentication-service:latest
+      - image: registry.gitlab.centerionware.com/pyrofoxxx/website-2:6a495ca8
         name: eric-website
-        env:
-          - name: MAS_CONFIG
-            value: /data/config.yaml
-        volumeMounts:
-        - name: config-volume
-          mountPath: /data/config.yaml
-          subPath: config.yaml
         ports:
-          - containerPort: 8080
-      - image: postgres:latest
-        name: config-shell
-        command: ["/bin/sh"]
-        args: ["-c", "tail -f /dev/null"]
-        volumeMounts:
-        - name: config-volume
-          mountPath: /data/config.yaml
-          subPath: config.yaml
-      volumes:
-      - name: config-volume
-        configMap:
-          name: mas-config
+          - containerPort: 80

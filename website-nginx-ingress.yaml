@@ -3,8 +3,8 @@ kind: Ingress
 metadata:
   annotations:
     kubernetes.io/ingress.class: eric-cloudflare
-  name: matrix-mas-ingress
-  namespace: matrix-mas
+  name: eric-website-ingress
+  namespace: eric-website
 spec:
   ingressClassName: eric-cloudflare
   rules:
