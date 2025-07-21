@@ -17,4 +17,4 @@ build_container:
     - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_BRANCH
     - docker system prune -a -f || true
     - docker builder prune -a -f || true
-    - update_argo_deployment.sh
+    - bash ./update_argo_deployment.sh
