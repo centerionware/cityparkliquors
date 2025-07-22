@@ -5,5 +5,8 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
+    volumes:
+      - ./public:/usr/share/nginx/html
+      - ./Store Pictures:/usr/share/nginx/html/Store Pictures/
     ports:
       - 8080:80
