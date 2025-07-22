@@ -61,8 +61,8 @@ jobs:
           echo "Updated image tag in $FILE_PATH:"
           cat "$FILE_PATH"
 
-          git config user.name "GitHub Actions Bot"
-          git config user.email "actions@github.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
           cat <<EOF > commit-message.txt
           Update image tag to $NEW_TAG
