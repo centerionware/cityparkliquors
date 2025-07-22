@@ -42,7 +42,7 @@ jobs:
         run: |
           set -euo pipefail
           GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
-          REPO_URL="https://github-actions[bot]@github.com/centerionware/cityparkliquors.git"
+          REPO_URL="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/centerionware/cityparkliquors.git"
           BRANCH="argocd"
           FILE_PATH="cityparkliquors/website-nginx-deployment.yaml"
           IMAGE_PREFIX="ghcr.io/centerionware/cityparkliquors/website"
