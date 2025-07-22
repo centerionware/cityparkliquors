@@ -42,7 +42,7 @@ jobs:
         run: |
           set -euo pipefail
           GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
-          REPO_URL="https://github.com/centerionware/cityparkliquors.git"
+          REPO_URL="https://github-actions[bot]@github.com/centerionware/cityparkliquors.git"
           BRANCH="argocd"
           FILE_PATH="cityparkliquors/website-nginx-deployment.yaml"
           IMAGE_PREFIX="ghcr.io/centerionware/cityparkliquors/website"
@@ -81,6 +81,6 @@ jobs:
           echo "added file"
           git commit -F commit-message.txt
           echo "committed"
-          git push github "$BRANCH"
+          git push origin "$BRANCH"
           echo "pushed"
 
