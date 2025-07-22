@@ -58,8 +58,8 @@ jobs:
           cd cityparkliquors
 
           sed -i "s|\(\s*- image: $IMAGE_PREFIX:\)[^[:space:]]*|\1$NEW_TAG|" "$FILE_PATH"
-          echo "Updated image tag in $FILE_PATH:"
-          cat "$FILE_PATH"
+          echo "Updated image tag in $FILE_PATH:$NEW_TAG"
+          # cat "$FILE_PATH"
 
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -75,8 +75,12 @@ jobs:
           Message:
           $COMMIT_MSG
           EOF
-
+          echo "Created commit message:"
+          cat commit-message.txt
           git add "$FILE_PATH"
+          echo "added file"
           git commit -F commit-message.txt
+          echo "committed"
           git push origin "$BRANCH"
+          echo "pushed"
 
