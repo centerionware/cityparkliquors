@@ -55,7 +55,7 @@ jobs:
           NEW_TAG="${SHORT_SHA}-helm"
 
           git clone --single-branch --branch "$BRANCH" "$REPO_URL"
-          cd deployment-repo
+          cd cityparkliquors
 
           sed -i "s|\(\s*- image: $IMAGE_PREFIX:\)[^[:space:]]*|\1$NEW_TAG|" "$FILE_PATH"
           echo "Updated image tag in $FILE_PATH:"
