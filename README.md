@@ -26,7 +26,7 @@ ArgoCD runs inside the kubernetes, and will monitor the argocd branch. Every 3 m
 
 ## Connecting to the domain
 
-To connect to the domain [cloudflare-tunnel-ingress-controller]([https://github.com/STRRL/cloudflare-tunnel-ingress-controller) will be used inside the kubernetes cluster. It will require 3 pieces of critical information that should be shared over secure channels:
+To connect to the domain [cloudflare-tunnel-ingress-controller](https://github.com/STRRL/cloudflare-tunnel-ingress-controller) will be used inside the kubernetes cluster. It will require 3 pieces of critical information that should be shared over secure channels:
 
 * The domain name
 * Your cloudflare accountId 
