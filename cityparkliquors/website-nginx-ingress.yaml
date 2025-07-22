@@ -18,3 +18,13 @@ spec:
                   number: 80
             path: /
             pathType: Prefix
+    - host: cityparkliquor.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: website-service
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
