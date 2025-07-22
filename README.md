@@ -29,7 +29,7 @@ ArgoCD runs inside the kubernetes, and will monitor the argocd branch. Every 3 m
 To connect to the domain [cloudflare-tunnel-ingress-controller]([https://github.com/STRRL/cloudflare-tunnel-ingress-controller) will be used inside the kubernetes cluster. It will require 3 pieces of critical information that should be shared over secure channels:
 
 * The domain name
-* Your cloudflare userid 
+* Your cloudflare accountId 
 * A cloudflare API token with specific permissions (see the cloudflare-tunnel-ingress-controller preqrequisites section for details on this token)
 
 Once these three pieces of information are communicated I can go ahead and launch your website to the domain on the ingress detailed on the argocd branch ingress file.
