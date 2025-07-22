@@ -81,6 +81,6 @@ jobs:
           echo "added file"
           git commit -F commit-message.txt
           echo "committed"
-          git push origin "$BRANCH"
+          git push github "$BRANCH"
           echo "pushed"
 
