@@ -41,7 +41,7 @@ jobs:
           GH_PAT: ${{ secrets.GH_PAT }}
         run: |
           set -euo pipefail
-
+          GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
           REPO_URL="https://github.com/centerionware/cityparkliquors.git"
           BRANCH="argocd"
           FILE_PATH="cityparkliquors/website-nginx-deployment.yaml"
