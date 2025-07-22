@@ -15,7 +15,7 @@ spec:
         app: eric-website
     spec:
       containers:
-      - image: ghcr.io/centerionware/cityparkliquors/website:c45f20e-helm
+      - image: ghcr.io/centerionware/cityparkliquors/website:7db5181
         name: eric-website
         ports:
           - containerPort: 80
