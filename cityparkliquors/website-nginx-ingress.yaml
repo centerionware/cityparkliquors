@@ -48,3 +48,23 @@ spec:
                   number: 80
             path: /
             pathType: Prefix
+    - host: www.cplq.co
+      http:
+        paths:
+          - backend:
+              service:
+                name: website-service
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
+    - host: cplq.co
+      http:
+        paths:
+          - backend:
+              service:
+                name: website-service
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
