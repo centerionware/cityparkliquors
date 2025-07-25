@@ -4,9 +4,6 @@ metadata:
   name: eric-website
   namespace: eric-website
 spec:
-  selector:
-    matchLabels:
-      app: eric-website
   strategy:
     type: RollingUpdate
   template:
