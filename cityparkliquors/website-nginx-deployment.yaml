@@ -4,6 +4,7 @@ metadata:
   name: eric-website
   namespace: eric-website
 spec:
+  replicas: 3
   selector:
     matchLabels:
       app: eric-website
@@ -14,6 +15,13 @@ spec:
       labels:
         app: eric-website
     spec:
+      topologySpreadConstraints:
+      - maxSkew: 1
+        topologyKey: kubernetes.io/hostname
+        whenUnsatisfiable: DoNotSchedule
+        labelSelector:
+          matchLabels:
+            app: eric-website
       containers:
       - image: ghcr.io/centerionware/cityparkliquors/website:afae8ae
         name: eric-website
