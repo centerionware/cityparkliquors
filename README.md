@@ -36,3 +36,5 @@ Once these three pieces of information are communicated I can go ahead and launc
 ### Critical Point to avoid pain
 
 in the DNS section for the domain there should not be an A or AAAA or CNAME record for the domain. They will be created automatically by the tunnel-ingress-controller. If they already exist the tunnel-ingress-controller will fail until they're erased it seems.
+
+*
