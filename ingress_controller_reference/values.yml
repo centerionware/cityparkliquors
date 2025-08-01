@@ -1,0 +1,53 @@
+affinity: {}
+cloudflare:
+  accountId: $ACCOUNT_ID
+  apiToken: $API_TOKEN
+  tunnelName: centerionware-tunnel
+cloudflared:
+  image:
+    pullPolicy: IfNotPresent
+    repository: cloudflare/cloudflared
+    tag: latest
+  protocol: auto
+  replicaCount: 3
+cloudflaredServiceMonitor:
+  create: false
+  honorLabels: false
+  interval: ''
+  jobLabel: ''
+  labels: {}
+  metricRelabelings: []
+  relabelings: []
+  scheme: http
+  scrapeTimeout: ''
+fullnameOverride: ''
+image:
+  pullPolicy: IfNotPresent
+  repository: cr.strrl.dev/strrl/cloudflare-tunnel-ingress-controller
+  tag: ''
+imagePullSecrets: []
+ingressClass:
+  controllerValue: strrl.dev/cloudflare-tunnel-ingress-controller
+  isDefaultClass: false
+  name: eric-cloudflare
+nameOverride: ''
+nodeSelector: {}
+podAnnotations: {}
+podSecurityContext: {}
+replicaCount: 3
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+securityContext: {}
+serviceAccount:
+  annotations: {}
+  create: true
+  name: ''
+tolerations: []
+global:
+  cattle:
+    systemProjectId: p-llsm6

@@ -1,0 +1,2 @@
+The values.yml is used with [https://github.com/STRRL/cloudflare-tunnel-ingress-controller](https://github.com/STRRL/cloudflare-tunnel-ingress-controller) and their helm chart installed to the cluster, with the apikey and accountid set to real values..
+It creates an ingress controller and cloudflared on 3 nodes preferentially. It doesn't seem to have proper topologySpread set though, so it's not as bulletproof as the argocd deployment of cityparkliquors/*
