@@ -10,6 +10,9 @@ spec:
       app: eric-website
   strategy:
     type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
   template:
     metadata:
       labels:
