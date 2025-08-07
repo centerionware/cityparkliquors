@@ -26,7 +26,7 @@ spec:
           matchLabels:
             app: eric-website
       containers:
-      - image: ghcr.io/centerionware/cityparkliquors/website:1315fd7
+      - image: ghcr.io/centerionware/cityparkliquors/website:18b64de
         name: eric-website
         ports:
           - containerPort: 80
