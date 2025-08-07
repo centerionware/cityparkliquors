@@ -78,3 +78,4 @@ The images will stay on your system even after running `docker compose down` or 
 to clean them off your system to recover the used disk space run:
 
 `docker image prune -a`
+ 
