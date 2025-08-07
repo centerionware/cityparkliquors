@@ -28,13 +28,13 @@ jobs:
       - name: Build and push multi-arch Docker image
         run: |
           IMAGE_TAG=ghcr.io/${{ github.repository }}/website:${{ steps.version.outputs.VERSION }}
-
+          LATEST_TAG=IMAGE_TAG=ghcr.io/${{ github.repository }}/website:latest
           docker buildx build \
             --platform linux/amd64,linux/arm64 \
             --file Dockerfile \
             --push \
             --tag $IMAGE_TAG \
-            --tag latest \
+            --tag $LATEST_TAG \
             ./
 
       - name: Update ArgoCD deployment manifest
