@@ -42,9 +42,10 @@ in the DNS section for the domain there should not be an A or AAAA or CNAME reco
 The github actions will build an OCI image and store it in ghcr.io. If you fork the project and submit a change an image will be automatically built by the github actions script. For this repository the image can be launched with:
 `docker run --name cityparkliquors-dev -d -p 8080:8080 ghcr.io/centerionware/cityparkliquors/website:latest` . If you fork to your own repository you can simply switch centerionware/cityparkliquors to the name of the fork, eg: `pyrofoxxx/cityparkliquors`
 
-To download the latest image after you've already run the above command in the past you will want to run `docker pull ghcr.io/centerionware/cityparkliquors/website:latest` (again, changing the repository location from `centerionware/cityparkliquors` to the new target). You will need to stop and start the image if you've previously run the above `docker run` command you will need to run a stop and remove command to stop and remove the old image before you can run the updated version again:
+To download the latest image after you've already run the above command in the past you will want to run `docker pull ghcr.io/centerionware/cityparkliquors/website:latest` (again, changing the repository location from `centerionware/cityparkliquors` to the new target). You will need to stop and restart the image if you've previously run the above `docker run` command.
 
+To stop and remove the old running image use: 
 `docker stop cityparkliquors-dev && docker rm cityparkliquors-dev` which will stop then remove the container. You can then re-run the above `docker run ...` to re-launch it with the latest version.
 
-These two commands will allow you to view a forks changes before approving a pull request by navigating to [http://localhost:8080](http://localhost:8080)
+These commands will allow you to view a forks changes before approving a pull request by navigating to [http://localhost:8080](http://localhost:8080)
 
