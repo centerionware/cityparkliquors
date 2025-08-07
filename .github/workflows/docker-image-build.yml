@@ -27,7 +27,7 @@ jobs:
 
       - name: Build and push multi-arch Docker image
         run: |
-          IMAGE_TAG=ghcr.io/centerionware/cityparkliquors/website:${{ steps.version.outputs.VERSION }}
+          IMAGE_TAG=ghcr.io/${{ github.repository }}/website:${{ steps.version.outputs.VERSION }}
 
           docker buildx build \
             --platform linux/amd64,linux/arm64 \
@@ -43,10 +43,10 @@ jobs:
         run: |
           set -euo pipefail
           GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
-          REPO_URL="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/centerionware/cityparkliquors.git"
+          REPO_URL="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
           BRANCH="argocd"
           FILE_PATH="cityparkliquors/website-nginx-deployment.yaml"
-          IMAGE_PREFIX="ghcr.io/centerionware/cityparkliquors/website"
+          IMAGE_PREFIX="ghcr.io/${{ github.repository }}/website"
           SHORT_SHA="${{ steps.version.outputs.VERSION }}"
           FULL_SHA="${{ github.sha }}"
           AUTHOR="${{ github.event.head_commit.author.name }}"
