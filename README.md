@@ -37,10 +37,10 @@ Once these three pieces of information are communicated I can go ahead and launc
 
 in the DNS section for the domain there should not be an A or AAAA or CNAME record for the domain. They will be created automatically by the tunnel-ingress-controller. If they already exist the tunnel-ingress-controller will fail until they're erased it seems.
 
-### Testing Forks
+## Testing Forks
 
 The github actions will build an OCI image and store it in ghcr.io. If you fork the project and submit a change an image will be automatically built by the github actions script. For this repository the image can be launched with:
-`docker run --name cityparkliquors-dev -d -p 8080:8080 ghcr.io/centerionware/cityparkliquors/website:latest` . If you fork to your own repository you can simply switch `centerionware/cityparkliquors` to the name of the fork, eg: `pyrofoxxx/cityparkliquors`
+`docker run --name cityparkliquors-dev -d -p 8080:80 ghcr.io/centerionware/cityparkliquors/website:latest` . If you fork to your own repository you can simply switch `centerionware/cityparkliquors` to the name of the fork, eg: `pyrofoxxx/cityparkliquors`
 
 To download the latest image after you've already run the above command in the past you will want to run `docker pull ghcr.io/centerionware/cityparkliquors/website:latest` (again, changing the repository location from `centerionware/cityparkliquors` to the new target). You will need to stop and restart the image if you've previously run the above `docker run` command.
 
