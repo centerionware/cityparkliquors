@@ -39,6 +39,8 @@ in the DNS section for the domain there should not be an A or AAAA or CNAME reco
 
 ## Testing Forks
 
+### Without docker-compose
+
 The github actions will build an OCI image and store it in ghcr.io. If you fork the project and submit a change an image will be automatically built by the github actions script. For this repository the image can be launched with:
 `docker run --name cityparkliquors-dev -d -p 8080:80 ghcr.io/centerionware/cityparkliquors/website:latest` . If you fork to your own repository you can simply switch `centerionware/cityparkliquors` to the name of the fork, eg: `pyrofoxxx/cityparkliquors`
 
@@ -49,3 +51,30 @@ To stop and remove the old running image use:
 
 These commands will allow you to view a forks changes before approving a pull request by navigating to [http://localhost:8080](http://localhost:8080)
 
+### Docker Compose example
+
+```yml
+version: '3'
+services:
+  nginx-site-1:
+    image: ghcr.io/centerionware/cityparkliquors/website:latest
+    ports:
+      - 8080:80
+```
+
+Change the image tag from `centerionware/cityparkliquors` to the forks location (eg: `pyrofoxxx/cityparkliquors`) and save to a file named `compose.yml` anywhere on your disk. Open a terminal and cd to the directory. From the directory containing the `compose.yml` run the following commands (the down will fail if it's not already running, it's safe to ignore the error):
+
+```
+docker compose pull
+docker compose down
+docker compose up -d
+```
+then navigate to [http://localhost:8080](http://localhost:8080) to view the changes.
+
+
+### Cleanup
+
+The images will stay on your system even after running `docker compose down` or `docker stop ... && docker rm ...`
+to clean them off your system to recover the used disk space run:
+
+`docker image prune -a`
