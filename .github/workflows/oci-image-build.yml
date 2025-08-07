@@ -46,7 +46,9 @@ jobs:
           GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
           REPO_URL="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
           BRANCH="argocd"
-          FILE_PATH="cityparkliquors/website-nginx-deployment.yaml"
+          DEPLOYMENT_FILE_PATH="cityparkliquors/website-nginx-deployment.yaml"
+          INGRESS_FILE_PATH="cityparkliquors/website-nginx-ingress.yaml"
+          PRODUCTION_PREFIX="ghcr.io/centerionware/cityparkliquors"
           IMAGE_PREFIX="ghcr.io/${{ github.repository }}/website"
           SHORT_SHA="${{ steps.version.outputs.VERSION }}"
           FULL_SHA="${{ github.sha }}"
@@ -58,8 +60,19 @@ jobs:
           git clone --single-branch --branch "$BRANCH" "$REPO_URL"
           cd cityparkliquors
 
-          sed -i "s|\(\s*- image: $IMAGE_PREFIX:\)[^[:space:]]*|\1$NEW_TAG|" "$FILE_PATH"
-          echo "Updated image tag in $FILE_PATH:$NEW_TAG"
+          if [ "$IMAGE_PREFIX" != "$PRODUCTION_PREFIX" ]; then
+            # Extract FORK_URL (first part of github.repository)
+            REPO="${{ github.repository }}"
+            FORK_URL="${REPO%%/*}"
+
+            if ! grep -qE "^\s*- host:\s*${FORK_URL}\." "$INGRESS_FILE_PATH"; then
+              sed -i "s|\(\s*- host:\s*\)\(.*\)|\1$FORK_URL.\2|" "$INGRESS_FILE_PATH"
+            fi
+            sed -i "s|$PRODUCTION_PREFIX|$IMAGE_PREFIX|g" "$DEPLOYMENT_FILE_PATH"
+          fi
+
+          sed -i "s|\(\s*- image: $IMAGE_PREFIX:\)[^[:space:]]*|\1$NEW_TAG|" "$DEPLOYMENT_FILE_PATH"
+          echo "Updated image tag in $DEPLOYMENT_FILE_PATH:$NEW_TAG"
           # cat "$FILE_PATH"
 
           git config user.name "github-actions[bot]"
@@ -78,7 +91,8 @@ jobs:
           EOF
           echo "Created commit message:"
           cat commit-message.txt
-          git add "$FILE_PATH"
+          git add "$DEPLOYMENT_FILE_PATH"
+          git add "$INGRESS_FILE_PATH"
           echo "added file"
           git commit -F commit-message.txt
           echo "committed"

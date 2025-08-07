@@ -19,7 +19,7 @@ You will need to login to the git server with git to push the changes.
 
 ## Deployment Details
 
-When you submit your code .github/workflows/docker-image-build.yml is run by the github servers, which will build a new nginx image with your content inside it. It will then update the argocd branch of this project, changing the image tag so the argocd deployment file points to the latest updated file. 
+When you submit your code .github/workflows/oci-image-build.yml is run by the github servers, which will build a new nginx image with your content inside it. It will then update the argocd branch of this project, changing the image tag so the argocd deployment file points to the latest updated file. 
 
 ArgoCD runs inside the kubernetes, and will monitor the argocd branch. Every 3 minutes it will check for changes, if any are found it will apply those changes, causing the website to be automatically updated with the new content in production.
 
