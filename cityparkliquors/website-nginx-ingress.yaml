@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: eric-cloudflare
   rules:
-    - host: centerionware.cityparkliquors.com
+    - host: cityparkliquors.com
       http:
         paths:
           - backend:
@@ -18,7 +18,7 @@ spec:
                   number: 80
             path: /
             pathType: Prefix
-    - host: centerionware.cityparkliquor.com
+    - host: cityparkliquor.com
       http:
         paths:
           - backend:
@@ -28,7 +28,7 @@ spec:
                   number: 80
             path: /
             pathType: Prefix
-    - host: centerionware.www.cityparkliquors.com
+    - host: www.cityparkliquors.com
       http:
         paths:
           - backend:
@@ -38,7 +38,7 @@ spec:
                   number: 80
             path: /
             pathType: Prefix
-    - host: centerionware.www.cityparkliquor.com
+    - host: www.cityparkliquor.com
       http:
         paths:
           - backend:
@@ -48,7 +48,7 @@ spec:
                   number: 80
             path: /
             pathType: Prefix
-    - host: centerionware.www.cplq.co
+    - host: www.cplq.co
       http:
         paths:
           - backend:
@@ -58,7 +58,7 @@ spec:
                   number: 80
             path: /
             pathType: Prefix
-    - host: centerionware.cplq.co
+    - host: cplq.co
       http:
         paths:
           - backend:
