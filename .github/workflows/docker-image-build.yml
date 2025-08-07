@@ -34,6 +34,7 @@ jobs:
             --file Dockerfile \
             --push \
             --tag $IMAGE_TAG \
+            --tag latest \
             ./
 
       - name: Update ArgoCD deployment manifest
