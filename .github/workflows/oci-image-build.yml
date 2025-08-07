@@ -48,7 +48,7 @@ jobs:
           BRANCH="argocd"
           DEPLOYMENT_FILE_PATH="cityparkliquors/website-nginx-deployment.yaml"
           INGRESS_FILE_PATH="cityparkliquors/website-nginx-ingress.yaml"
-          PRODUCTION_PREFIX="ghcr.io/centerionware/cityparkliquors"
+          PRODUCTION_PREFIX="ghcr.io/centerionware/cityparkliquors/website"
           IMAGE_PREFIX="ghcr.io/${{ github.repository }}/website"
           SHORT_SHA="${{ steps.version.outputs.VERSION }}"
           FULL_SHA="${{ github.sha }}"
