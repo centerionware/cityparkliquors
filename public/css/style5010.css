@@ -115,7 +115,7 @@ button,
 input,
 select,
 textarea {
-	color: #404040;
+	color: #000000;
 	font-family: 'Oswald', sans-serif;
 	font-size: 20px;
 	font-size: 2rem;
@@ -275,7 +275,7 @@ html {
 	box-sizing: inherit;
 }
 body {
-	background: #fff; /* Fallback for when there is no custom background color defined. */
+	background: #ffffff; /* Fallback for when there is no custom background color defined. */
 }
 blockquote,
 q {
@@ -324,7 +324,7 @@ td {
 th {
 	font-weight: bold;
 	padding: 10px 5px 5px;
-	border-bottom: 4px solid #222;
+	border-bottom: 4px solid #00008a;
 }
 
 /*--------------------------------------------------------------
@@ -352,7 +352,7 @@ input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover,
 #infinite-handle span:hover {
-	border-color: #000;
+	border-color: #00008a;
 	color: rgba(0, 0, 0, 0.8);
 }
 button:focus,
@@ -382,7 +382,7 @@ input[type="url"]:focus,
 input[type="password"]:focus,
 input[type="search"]:focus,
 textarea:focus {
-	border-color: #000;
+	border-color: #00008a;
 	color: #111;
 	outline: none;
 }
@@ -440,7 +440,7 @@ a img {
 5.2 Menus
 --------------------------------------------------------------*/
 .main-navigation {
-	background: #000001;
+	background: #00008a;
 	color: #FFF;
 	clear: both;
 	display: block;
